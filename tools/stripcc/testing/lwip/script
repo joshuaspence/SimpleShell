@@ -1,0 +1,4 @@
+package = lwip-0.5.3.tar.gz
+# no pre_make, use 'ls' instead
+pre_make = ls
+make_dir = proj/unixsim

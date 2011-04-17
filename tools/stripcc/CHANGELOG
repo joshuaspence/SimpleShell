@@ -1,0 +1,33 @@
+stripcc 0.2.0 20081212
+  modified by Du XiaoGang<dugang@188.com>.
+
+Adds:
+  1, add configuration file(stripcc.conf).
+  2, automatically ignore the syntax error in source file.
+  3, add fast strip mode.
+
+
+stripcc 0.1.1 20070914
+  modified by harite <harite.k@gmail.com>.
+
+Adds:
+  1.all the c/c++ file type supporting!
+      this patch come form fangmz <fangmz@users.sourceforge.net> .
+    (note:we need more test)
+  
+  2.NLS(Native Language Support)!
+      we already have the zh_CN.UTF-8 and en_US supported. if you want
+    to help us translate it into your mother lanaguage, please   
+    read NLS and contact with us. 
+
+Bugfixes:
+  1, stripcc 0.1.0 can't properly process below statements:
+    char *str = "\\\""; /* some comments */
+      or 
+    char *str = "\\\""; // some comments
+      version 0.1.1 fixed, by Du XiaoGang <dugang@188.com>.
+
+
+stripcc 0.1.0 20070506
+  created by Du XiaoGang <dugang@188.com>.
+  you can read more in "stripcc_cn.html" or "stripcc_en.html"

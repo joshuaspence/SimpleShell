@@ -1,0 +1,102 @@
+MYSHELL(1)                                                                                                                                         BASH(1)
+
+AUTHOR
+       Name:  Joshua Spence
+       SID:   308216350
+
+NAME
+       myshell - Joshua Spence's Shell
+
+SYNOPSIS
+       myshell [batch_file]
+
+DESCRIPTION
+       myshell is a command language interpreter that executes commands read from the standard input or from a file.
+
+COMMANDS
+       cd [directory]
+                     If directory is specified, this command changes to the specified directory.
+                     If directory is not specified, this command outputs the current working directory.
+       clr           Clears the terminal screen.
+       dir [directory]
+                     If directory is specified, this command lists the contents of the specified directory.
+                     If directory is not specified, this command lists the contents of the current working directory.
+       environ       Lists all of the environment variables in the current environment.
+       echo [arg1] [arg2] [arg3] ... [argN]
+                     Displays all of the specified arguments ([arg1] through [argN]) on the terminal screen.
+       help          Displays the help file for myshell.
+       pause         Pauses execution of the shell until the 'enter' key is pressed.
+       quit          Quits execution of the shell.
+       debug ["on"|"off"]
+                     Turns useful debug messages on/off. This command is only available if the myshell executable is compiled using the "debug" parameter.
+       [other]       Any other command specified will be passed to the system in a child process.
+
+
+I/O REDIRECTION
+       Standard input (stdin) and standard output (stdout) can be redirected for commands where doing so would be logical.
+	   
+       Standard input is redirected by appending "< [input_file]" to the end of the command for which the standard input should be redirected. Standard
+       input will only be redirected if the file [input_file] exists and can be opened for reading.
+	   
+       Standard output is redirected by appending "> [output_file]" or ">> [output_file] to the end of the command for which the standard output should 
+       be redirected. If [output_file] does not exist then it will be created. When using the ">" parameter, output will truncate the contents of 
+       [output_file]. When using the ">>" parameter, output will be appended to [output_file].
+
+       Standard error (stderr) cannot be redirected.
+	   
+       Input/output redirection parameters must be separated from other commands/arguments by whitespace.
+	   
+       The following commands allow standard input redirection:
+              dir
+              echo
+              help
+              [other]
+	   
+       The following commands allow standard output redirection:
+              cd
+              dir
+              environ
+              echo
+              help
+              [other]
+	   
+BATCH PROCESSING
+       By specifying a [batch_file] when executing myshell, an input batch file can be used to specify the commands for myshell to process. When using 
+       batch processing, no shell prompt will be displayed and the shell will exit when the end of [batch_file] is reached. myshell will terminate 
+       earlier if the "quit" command is explicitly stated in the batch file.
+
+       Note that [batch_file] must exist and be able to be opened for reading, in order to be batch processed by myshell.	   
+
+PROGRAM ENVIRONMENT
+       The environment of myshell contains all of the environment variables from the system on which it was executed. Additionally, myshell contains an
+       environment variable named "shell" which contains the path to the myshell executable, regardless of how myshell was executed.
+	   
+       If myshell executes a child process, then the child process will contain an additional environment variable named "parent" which contains the 
+       path to the myshell executable from which the child process spawned.
+
+BACKGROUND PROGRAM EXECUTION
+       Certain commands can be executed in the background such that they are executed in a child process and myshell need not wait for these commands to
+       terminate before executing further commands. To execute a command in the background, simply append '&' to the end of the command, ensuring that 
+       character is separated from all other commands/arguments by whitespace.
+	   
+       The following commands can be executed in the background:
+              dir
+              help
+              [other]
+
+QUOTED ARGUMENTS
+       Arguments or commands which are surrounded by quotation marks ('"') will have any whitespace between quotation marks ignored. This allows the user
+       to execute commands with arguments containing whitespace.
+	   
+       Note that nested quotation marks are not supported. A quotation mark will only be matched will the next found quotation mark, after which argument
+       parsing returns to normal until another quotation mark is found.
+	   
+       Quotation marks will be removed from commands/arguments before execution.
+	   
+       Example:
+              dir ../"Assignment 1"/src			changes the current working directory to "../Assignment 1/src".
+              dir ../Assignment 1/src			changes the current working directory to "../Assignment". The argument "1/src" is ignored.
+              dir "../Assignment 1/src"			changes the current working directory to "../Assignment 1/src".
+              dir "../"Assignment 1/src			changes the current working directory to "../Assignment". The argument "1/src" is ignored.
+              dir "../"Assignment" 1/src"		changes the current working directory to "../Assignment 1/src".
+              dir "../"Assignment 1"/src"		changes the current working directory to "../Assignment". The argument "1/src" is ignored.
