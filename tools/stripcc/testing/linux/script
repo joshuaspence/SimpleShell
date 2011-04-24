@@ -1,3 +1,0 @@
-package = linux-2.6.27.7.tar.bz2
-pre_make = make defconfig
-make = make vmlinux

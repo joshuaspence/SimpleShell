@@ -1,4 +1,3 @@
-#ifndef __CMD_INTERNAL_H_
 #define __CMD_INTERNAL_H_
 /*
     cmd_intenal.h
@@ -24,9 +23,6 @@ extern process_information proc_info;							// information about child processes
 extern FILE *input_redir;										// file for input redirection (stdin if null)
 extern FILE *output_redir;										// file for output redirection (stdout if null)
 extern char *path;												// path to the executable
-#ifdef DEBUG
-extern boolean debug;											// is debug mode active?
-#endif
 extern char **environ;                                        	// pointer to environment variables
 
 // forward declarations (to fix compilation warnings)
@@ -57,4 +53,3 @@ int pause(void);
 
 // quit the shell
 int quit(void);
-#endif

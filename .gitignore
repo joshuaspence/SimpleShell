@@ -1,0 +1,19 @@
+# Don't add object files to repo
+obj
+
+# Don't add striped source files to repo
+inc/striped
+src/striped
+
+# Don't add backup files to repo
+inc/backup
+src/backup
+
+# Don't add executable to repo
+myshell
+
+# Don't add tar file to repo
+Assignment1_308216350.tar
+
+# Don't add log files
+stripcc.err

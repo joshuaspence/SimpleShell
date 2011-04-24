@@ -28,7 +28,6 @@ INCDIR_BACKUP = inc/backup
 INCDIR_STRIPED = inc/striped
 OBJDIR = obj
 
-STRIPCC_PATH = ./tools/stripcc/stripcc
 STRIPCC_ERROR_FILE = stripcc.err
 TAR_FILE = Assignment1_308216350.tar
 
@@ -128,6 +127,8 @@ debug: CFLAGS += $(CFLAGS_DEBUG)
 debug: $(DEST)
 
 # strip unused ifdef statements from source code (project must be MADE first)
+# note that stripcc should be in a directory specified in the user's path 
+# variable.
 strip:
 	@echo "====================================================="
 	@echo "Striping unused ifdef statements from *.c and *.h "
@@ -152,7 +153,7 @@ strip:
 	cp -p $(INCDIR)/*.h $(INCDIR_BACKUP)/
 	@echo "-----------------------------------------------------"
 	@echo "Running stripcc."
-	$(STRIPCC_PATH)
+	stripcc
 	@echo "-----------------------------------------------------"
 	@echo "Moving striped files."
 	mv $(SRCDIR)/*.c $(SRCDIR_STRIPED)/

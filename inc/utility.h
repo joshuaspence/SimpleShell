@@ -64,9 +64,4 @@ void sys_err(const char *);
 
 // print an error message to stderr
 void err(const char *);
-#ifdef DEBUG
-
-// print a debug message
-void debug_message(const char *);
-#endif
 #endif

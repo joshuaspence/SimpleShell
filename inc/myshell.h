@@ -1,4 +1,3 @@
-#ifndef __MYSHELL_H_
 #define __MYSHELL_H_
 /*
     myshell.h
@@ -27,9 +26,6 @@ process_information proc_info;									// information about child processes
 FILE *input_redir;												// file for input redirection (stdin if null)
 FILE *output_redir;												// file for output redirection (stdout if null)
 char *path;														// path to the executable
-#ifdef DEBUG
-boolean debug;                               	        		// is debug mode on?
-#endif
 
 // output the shell prompt
 void output_shell_prompt(const char *);
@@ -60,21 +56,3 @@ void reset_process_information(void);
 
 // main function to run the shell
 int main(int, char **);
-#ifdef DEBUG
-
-// turns debug mode on or off
-int debug_mode(const boolean);
-
-// display a debug message indicating that a command has been recognised
-void debug_command_recognised_message(const char *, const char *);
-
-// display a debug message indicating that a command has been executed
-void debug_command_executed_message(const char *, const char *);
-
-// display a debug message showing the input that has been read
-void debug_read_line_message(const char *);
-
-// display a debug message showing the command and arguments that have been recognised and will be processed
-void debug_command_args_message(const char *, const char **);
-#endif
-#endif

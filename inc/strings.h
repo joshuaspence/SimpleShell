@@ -41,13 +41,4 @@
 #define		SEPARATORS					" \t\n"                 // token sparators
 #define		QUOTATION_MARKS				"\""                 	// quotation marks
 #define		EXIT_PAUSE_CHARACTER		'\n'					// character used to exit pause mode
-#ifdef DEBUG
-
-#define		DEBUG_COMMAND				"debug"                 // command to access debug mode
-#define		DEBUG_ON					"on"                    // command line argument to turn debug mode on
-#define		DEBUG_OFF					"off"                   // command line argument to turn debug mode off
-	
-#define		DEBUG_PROMPT				"[DEBUG MODE] "			// text to prefix shell prompt if debug mode active
-#define		DEBUG_MESSAGE_PREFIX		"[DEBUG]: "             // text to appear before any debug messages
-#endif
 #endif
