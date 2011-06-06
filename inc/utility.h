@@ -3,31 +3,31 @@
 /*
     utility.h
 
-    Author:	Joshua Spence
-	SID:	308216350
-	
-	Contains utility functions used for general string manipulation and other actions.
+    Author: Joshua Spence
+    SID:    308216350
+        
+    Contains utility functions used for general string manipulation and other actions.
 */
 
-#include	<errno.h>
-#include	<stdio.h>
-#include	<string.h>
-#include	<stdlib.h>
-#include	<unistd.h>
-#include	<sys/types.h>
+#include    <errno.h>
+#include    <stdio.h>
+#include    <string.h>
+#include    <stdlib.h>
+#include    <unistd.h>
+#include    <sys/types.h>
 
-#include	"strings.h"
+#include    "strings.h"
 
-#define		ALLOCATION_BLOCK			64						// amount of memory to be allocated each time when calling malloc for a string of unknown size
+#define     ALLOCATION_BLOCK            64                      // amount of memory to be allocated each time when calling malloc for a string of unknown size
 
 typedef int boolean;                                            // boolean type
-#define		FALSE						0                       // used for boolean false
-#define		TRUE						1                       // used for boolean true
+#define     FALSE                       0                       // used for boolean false
+#define     TRUE                        1                       // used for boolean true
 
 typedef struct process_information {
-	pid_t pid;													// process id when forking
-	boolean dont_wait;											// wait for forked process?
-	int status;													// status information about the forked process
+    pid_t pid;                                                  // process id when forking
+    boolean dont_wait;                                         // wait for forked process?
+    int status;                                                 // status information about the forked process
 } process_information;
 
 extern int errno;                                               // system error number
@@ -64,4 +64,9 @@ void sys_err(const char *);
 
 // print an error message to stderr
 void err(const char *);
+
+#ifdef DEBUG
+// print a debug message
+void debug_message(const char *);
+#endif
 #endif

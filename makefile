@@ -46,7 +46,7 @@ $(DEST): $(OBJS)
 	@echo "------------------- Link finished -------------------"
 	@echo
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h $(INCDIR)/strings.h
 	@echo "====================================================="
 	@echo "Compiling $<"
 	@echo "====================================================="
@@ -55,10 +55,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h
 	$(CC) $(CFLAGS) $< -o $(OBJDIR)/$*.o
 	@echo "--------------- Compilation finished ----------------"
 	@echo
-
-$(SRCDIR)/myshell.c: $(INCDIR)/cmd_internal.h $(INCDIR)/utility.h $(INCDIR)/strings.h
-$(SRCDIR)/cmd_internal.c: $(INCDIR)/utility.h $(INCDIR)/strings.h
-$(SRCDIR)/utility.c: $(INCDIR)/strings.h
 
 # the following targets are phony
 .PHONY: clean partial-clean help strip restore-backup
