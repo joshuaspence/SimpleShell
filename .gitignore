@@ -1,13 +1,13 @@
 # Don't add object files to repo
-obj
+obj/
 
 # Don't add striped source files to repo
-inc/striped
-src/striped
+inc/striped/
+src/striped/
 
 # Don't add backup files to repo
-inc/backup
-src/backup
+inc/backup/
+src/backup/
 
 # Don't add executable to repo
 myshell
