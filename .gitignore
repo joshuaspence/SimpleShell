@@ -17,3 +17,6 @@ Assignment1_308216350.tar
 
 # Don't add log files
 stripcc.err
+
+# Sublime Text
+*.sublime-workspace
